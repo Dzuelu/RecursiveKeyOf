@@ -1,4 +1,4 @@
-# RecursiveKeyOf
+# Recursive-KeyOf
 
 Need the keys of an interface or class but want to make sure they are typed correctly while doing it?
 This has been useful enough to me to make a package exporting just this type.
