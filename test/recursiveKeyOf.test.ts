@@ -1,28 +1,10 @@
-import { RecursiveKeyOf } from '../src';
-
-interface TestType {
-  array: string[];
-  boolean: boolean;
-  number: number;
-  object: {
-    array: string[];
-    boolean: boolean;
-    number: number;
-    object2: {
-      array: string[];
-      boolean: boolean;
-      number: number;
-      object3: {};
-      string: string;
-    };
-    string: string;
-  };
-  string: string;
-}
+import { RecursiveKeyOf } from '../src/recursiveKeyOf';
+import { TestType } from './testType';
 
 test('default types work as expected', () => {
   const types: RecursiveKeyOf<TestType>[] = [
     'array',
+    'customArray',
     'boolean',
     'number',
     'object',
@@ -58,19 +40,6 @@ test('custom separator types work as expected', () => {
     'object/object2/string',
     'object/string',
     'string'
-  ];
-  expect(types).toBe(types);
-});
-
-test('custom separator types work as expected', () => {
-  const types: RecursiveKeyOf<TestType, '/'>[] = [
-    'array',
-    'object/boolean',
-    'object/object2',
-    'object/object2/object3',
-    'object/object2/string',
-    'object/string',
-    'object/number'
   ];
   expect(types).toBe(types);
 });
